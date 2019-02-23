@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Save new Task</title>
+	</head>
+	<body>
+		<h1>Add/Edit Task</h1>
+		<hr>
+		
+		
+		<form action="#" th:action="@{/save}" th:object="${task}" method="POST">
+		
+			<input type="hidden" th:field="*{id}"/>
+			<input type="text" th:field="*{title}" placeholder="title">
+			<input type="text" th:field="*{description}" placeholder="description">
+			
+			<input type="datetime-local" th:field="*{dateTime}">
+			
+			
+			<button type="submit">Save</button>
+			
+		</form>
+		<a th:href="@{/}">Back to list</a>
+		
+	</body>
+</html>

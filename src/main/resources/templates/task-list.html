@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Hello toDoList</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>My todo list</h1>
+	<hr>
+	
+	<table>
+		<thead>	
+			<tr>
+				<td>Task time</td>
+				<td>Title</td>
+				<td>Description</td>
+				<td>Action</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="task : ${tasks}">
+				<td th:text="${#temporals.format(task.dateTime,'HH:mm')}"/>
+				<td th:text="${task.title}"/>
+				<td th:text="${task.description}">
+				<td th:class="center">
+					<a th:href="@{/showEditForm(taskId=${task.id})}">Edit</a>/
+					<a th:href="@{/delete(taskId=${task.id})}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<a th:href="@{/showAddForm}">Add task</a>
+</body>
+</html>
