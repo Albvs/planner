@@ -26,6 +26,13 @@ public class MainController {
 	@Qualifier("taskServiceImpl")
 	TaskService taskService;
 	
+	@RequestMapping("test")
+	public String testMethod(Model model) {
+		List<Task> tasks = taskService.findAllByGivenDate("2019-02-23");
+		model.addAttribute("dateContainer", new DateContainer(LocalDate.now()));
+		model.addAttribute("tasks", tasks);
+		return "task-list";
+	}
 	
 	@RequestMapping("/")
 	public String listTasks(Model model) {

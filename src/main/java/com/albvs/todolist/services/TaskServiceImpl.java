@@ -22,6 +22,11 @@ public class TaskServiceImpl implements TaskService {
 	}
 	
 	@Override
+	public List<Task> findAllByGivenDate(String date) {
+		return taskDAO.findAllByGivenDate(date);
+	}
+	
+	@Override
 	public List<Task> getAll() {
 		return taskDAO.findAll();
 	}
@@ -51,4 +56,6 @@ public class TaskServiceImpl implements TaskService {
 	public void deleteById(int id) {
 		taskDAO.deleteById(id);
 	}
+
+	
 }

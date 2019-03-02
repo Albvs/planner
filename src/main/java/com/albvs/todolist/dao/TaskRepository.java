@@ -11,4 +11,7 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 	
 	@Query("from Task t order by t.dateTime asc")
 	List<Task> findAllOrderByDateTimeAsc();
+	
+	@Query("from Task t where cast(t.dateTime as string) like :date% ")
+	List<Task> findAllByGivenDate(String date);
 }
