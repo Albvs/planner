@@ -17,6 +17,11 @@ public class TaskServiceImpl implements TaskService {
 	private TaskRepository taskDAO;
 	
 	@Override
+	public List<Task> findAllOrderByDateTimeAsc() {
+		return taskDAO.findAllOrderByDateTimeAsc();
+	}
+	
+	@Override
 	public List<Task> getAll() {
 		return taskDAO.findAll();
 	}

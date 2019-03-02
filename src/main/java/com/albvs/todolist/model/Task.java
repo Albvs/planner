@@ -7,12 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="task")
+@Table(name="Task")
+//@NamedQuery(name="Task.findAllOrderByDateTimeAsc", 
+//			query="from Task t order by t.dateTime asc")
 public class Task {
 	
 	@Id

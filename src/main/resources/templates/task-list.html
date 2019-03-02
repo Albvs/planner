@@ -5,7 +5,15 @@
 	<link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-	<h1>My todo list</h1>
+	<h1>My todo list on day: </h1>
+
+	<form action="#" th:action="@{/onDay}" th:object="${dateContainer}" method="post">
+		<input type="date" th:field="*{date}">
+		   
+		<button type="submit">Change to this date</button>
+	
+	</form>
+	
 	<hr>
 	
 	<table>
