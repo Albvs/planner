@@ -1,5 +1,6 @@
 package com.albvs.todolist.services;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,8 +23,8 @@ public class TaskServiceImpl implements TaskService {
 	}
 	
 	@Override
-	public List<Task> findAllByGivenDate(String date) {
-		return taskDAO.findAllByGivenDate(date);
+	public List<Task> findAllByGivenDate(LocalDate date) {
+		return taskDAO.findAllByGivenDate(date.toString());
 	}
 	
 	@Override

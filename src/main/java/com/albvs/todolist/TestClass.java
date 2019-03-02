@@ -35,9 +35,9 @@ public class TestClass {
 		
 		System.out.println(actualDate);
 		
+		String stringDate = actualDate.toString();
 		
-		
-		
+		System.out.println(stringDate);
 		
 		
 		
