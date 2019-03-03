@@ -17,3 +17,7 @@ table>thead{
 	font-weight: bold;
 	background-color: #CFE5ED;
 }
+
+a.addButton{
+	margin-left: 15%;
+}

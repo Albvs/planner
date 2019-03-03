@@ -5,12 +5,12 @@
 	<link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-	<h1>Your day tasks on: </h1>
+	<h1>All your tasks: </h1>
 
 	<form action="#" th:action="@{/onDay}" th:object="${dateContainer}" method="post">
 		<input type="date" th:field="*{date}">
 		   
-		<button type="submit">Switch date</button>
+		<button type="submit">Show this day</button>
 	
 	</form>
 	
@@ -20,7 +20,7 @@
 		<table>
 			<thead>	
 				<tr>
-					<td>Task time</td>
+					<td>Task date</td>
 					<td>Title</td>
 					<td>Description</td>
 					<td>Action</td>
@@ -28,7 +28,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="task : ${tasks}">
-					<td th:text="${#temporals.format(task.dateTime,'HH:mm')}"/>
+					<td th:text="${#temporals.format(task.dateTime,'yyyy-MM-dd HH:mm')}"/>
 					<td th:text="${task.title}"/>
 					<td th:text="${task.description}">
 					<td th:class="center">
@@ -38,9 +38,10 @@
 				</tr>
 			</tbody>
 		</table>
+		
 		<a th:class="addButton" th:href="@{/showAddForm}">Add task</a> <br>
-		<a th:href="@{/allTasks}">Show all tasks</a> <br>
 		<a th:href="@{/}">Show today's tasks</a>
+		
 	</div>
 </body>
 </html>

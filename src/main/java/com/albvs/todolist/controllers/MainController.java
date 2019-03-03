@@ -21,16 +21,7 @@ import com.albvs.todolist.services.TaskService;
 public class MainController {
 
 	@Autowired
-	@Qualifier("taskServiceImpl")
 	TaskService taskService;
-	
-//	@RequestMapping("test")
-//	public String testMethod(Model model) {
-//		List<Task> tasks = taskService.findAllByGivenDate("2019-02-24");
-//		model.addAttribute("dateContainer", new DateContainer(LocalDate.now()));
-//		model.addAttribute("tasks", tasks);
-//		return "task-list";
-//	}
 	
 	@RequestMapping("/")
 	public String listTasks(Model model) {
@@ -47,6 +38,15 @@ public class MainController {
 		model.addAttribute("dateContainer", dateContainer);
 		model.addAttribute("tasks", tasks);
 		return "task-list";
+	}
+	
+	@RequestMapping("allTasks")
+	public String showAllTasks(Model model) {
+		DateContainer dateContainer = new DateContainer(LocalDate.now());
+		List<Task> tasks = taskService.findAllOrderByDateTimeAsc();
+		model.addAttribute("dateContainer", dateContainer);
+		model.addAttribute("tasks", tasks);
+		return "all-tasks";
 	}
 	
 	@RequestMapping("showAddForm")
